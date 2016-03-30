@@ -36,7 +36,8 @@ public class Adder {
 	}
 	Adder (){	
 	}
-//Methode 	
+//Methode
+	@Autowired
 	public int [] evaluateadder(){
 		h1.a=this.a;
 		h1.b=this.b;
