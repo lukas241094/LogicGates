@@ -2,9 +2,11 @@ package org.gradle;
 import javax.annotation.Resource;
 
 import org.gradle.gates.AndGate;
+import org.gradle.gates.Gate;
 import org.gradle.gates.OrGate;
 import org.gradle.gates.Xor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -17,11 +19,14 @@ public class Adder {
     @Resource
     HalfAdder h2;
     @Resource
-    OrGate or;
+    @Qualifier ("OrGate")
+    Gate or;
     @Resource
-    AndGate andGate;
+    @Qualifier ("AndGate")
+    Gate andGate;
     @Resource 
-    Xor xor;
+    @Qualifier ("Xor")
+    Gate xor;
     
 	//Definitionen
     @Value("${org.gradle.a}")

@@ -20,9 +20,10 @@ class TestGate extends Specification{
 	def gate =new AndGate()
 	    then:
     gate.evaluate(a,b)==c
+	
 	where:
     a    | b     | c
-	true | false | false
+	true | true  | true
 /*	1 | 1 | 1
 	0 | 0 | 0
 	0 | 1 | 0*/
@@ -72,7 +73,7 @@ class TestGate extends Specification{
 		 1 | 1 | 0
 		 0 | 0 | 0
 		 0 | 1 | 1
-	 }
+	 }print "hello"
 	 def "NandGate"(){
 		 when:
 		 def nand=new NandGate()

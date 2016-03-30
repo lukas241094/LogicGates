@@ -3,7 +3,7 @@ package org.gradle.gates;
 import org.springframework.stereotype.Component;
 
 
-@Component
+@Component("AndGate")
 public class AndGate implements Gate{
 
 	

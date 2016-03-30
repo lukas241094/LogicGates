@@ -2,7 +2,9 @@ package org.gradle;
 import javax.annotation.Resource;
 
 import org.gradle.gates.AndGate;
+import org.gradle.gates.Gate;
 import org.gradle.gates.Xor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 
@@ -10,9 +12,11 @@ import org.springframework.stereotype.Component;
 public class HalfAdder{
 	//Aufruf mit Methoden
    @Resource
-   AndGate andgate;
+   @Qualifier("AndGate")
+   Gate andgate;
    @Resource
-   Xor xor;
+   @Qualifier("Xor")
+   Gate xor;
 //Variablen Deklaration
  boolean a;
  boolean b;
