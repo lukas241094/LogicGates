@@ -22,23 +22,23 @@ class TestGate extends Specification{
     gate.evaluate(a,b)==c
 	
 	where:
-    a    | b     | c
-	true | true  | true
-/*	1 | 1 | 1
-	0 | 0 | 0
-	0 | 1 | 0*/
+		a    |b    |c
+		false|false|false
+		true |false|false
+		false|true |false
+		true |true |true
 	}
-  /*  def "OrGate"() {
+    def "OrGate"() {
 		 when:
 	def orgate=new OrGate()
 		 then:
     orgate.evaluate(a,b)==c
 	where:
-	a | b | c
-	1 | 0 | 1
-	1 | 1 | 1
-	0 | 0 | 0
-	0 | 1 | 1
+		a    |b    |c
+		false|false|false
+ 		true |false|true
+		false|true |true
+		true |true |true
 }
 	 def "NotGate"() {
 		 when:
@@ -46,9 +46,10 @@ class TestGate extends Specification{
 		 then:
 		 notgate.evaluate(a,b)==c
 		 where:
-		a | b | c
-	    0 | 0 | 1
-	    1 | 0 | 0
+		a    |b    |c
+		false|false|true
+		true |false|false
+
 	    	}
      def "NorGate"() {
 		when:
@@ -56,11 +57,11 @@ class TestGate extends Specification{
 		 then:
 		 nor.evaluate(a,b)==c
 		 where:
-		 a | b | c
-		 1 | 0 | 0
-		 1 | 1 | 0
-		 0 | 0 | 1
-		 0 | 1 | 0	 
+		a    |b    |c
+		false|false|true
+		true |false|false
+		false|true |false
+		true |true |false	 
 } 
      def "XorGate"() {
 		 when:
@@ -68,23 +69,23 @@ class TestGate extends Specification{
 		 then:
 		 xor.evaluate(a,b)==c
 		 where:
-		 a | b | c
-		 1 | 0 | 1
-		 1 | 1 | 0
-		 0 | 0 | 0
-		 0 | 1 | 1
-	 }print "hello"
+		a    |b    |c
+		false|false|false
+		true |false|true
+		false|true |true
+		true |true |false
+	 }
 	 def "NandGate"(){
 		 when:
 		 def nand=new NandGate()
 		 then:
 		 nand.evaluate(a,b)==c
 		 where:
-		 a | b | c
-		 0 | 0 | 1
-		 0 | 1 | 1
-		 1 | 0 | 1
-		 1 | 1 | 0
+		a    |b    |c
+		false|false|true
+		true |false|true
+		false|true |true
+		true |true |false
 	 
 	 }
 	 def "XnorGate"(){
@@ -93,10 +94,10 @@ class TestGate extends Specification{
 		 then:
 		 xnor.evaluate(a,b)==c
 		 where:
-		 a | b | c
-		 0 | 0 | 1
-		 0 | 1 | 0
-		 1 | 0 | 0
-		 1 | 1 | 1
-	 }*/
+		a    |b    |c
+		false|false|true
+		true |false|false
+		false|true |false
+		true |true |true
+	 }
 }
