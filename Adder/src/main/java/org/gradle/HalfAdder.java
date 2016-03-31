@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class HalfAdder{
-	//Aufruf mit Methoden
+//Aufruf mit Methoden
    @Resource
    @Qualifier("AndGate")
    Gate andgate;
@@ -24,8 +24,8 @@ public class HalfAdder{
  boolean e;
 //HalfAdder Constructor
  HalfAdder(){
- }
- HalfAdder(boolean a, boolean b){
+}
+HalfAdder(boolean a, boolean b){
 		this.a=a;
 		this.b=b;
  }

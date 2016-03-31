@@ -1,4 +1,6 @@
 package org.gradle;
+import java.io.IOException;
+
 import javax.annotation.Resource;
 
 import org.gradle.gates.AndGate;
@@ -11,7 +13,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 
-//@Component
+@Component
 public class Adder {
 	//Aufruf mit Methoden
     @Resource
@@ -27,13 +29,16 @@ public class Adder {
     @Resource 
     @Qualifier ("Xor")
     Gate xor;
+    @Resource
+    Reader reader;
+    
     
 	//Definitionen
-    @Value("${org.gradle.a}")
-	boolean a;
-    @Value("${org.gradle.b}")
+    //@Value("${org.gradle.a}")
+	boolean a ;
+    //@Value("${org.gradle.b}")
 	boolean b;
-    @Value("${org.gradle.c}")
+    //@Value("${org.gradle.c}")
 	boolean c;
 	 //Constructor
     Adder (boolean a,boolean b,boolean c){
@@ -41,12 +46,23 @@ public class Adder {
 		this.b=b;
 		this.c=c;
 	}
-	public Adder (){	
+	Adder (){	
 	}
 	
+	public Store variablesSetter(Store store) throws IOException{
+		
+		Boolean[] array = store.getInput();
+		this.a = array[0];
+		this.b = array[1];
+		this.c = array[2];
+		return store;
+		}
     //Methode
-	@Autowired
-	public boolean [] evaluateadder(){
+
+	public Store evaluateadder(Store store) throws IOException{
+		while(true){
+		store = variablesSetter(store);
+		
 		h1.a=this.a;
 		h1.b=this.b;
 		boolean [] zwischenspeicher = h1.evaluateHalfAdder();//d,e
@@ -55,11 +71,13 @@ public class Adder {
 		boolean [] zwischenspeicher2 = h2.evaluateHalfAdder();//f,g
 		boolean g=zwischenspeicher2[1];
 		boolean h=or.evaluate(zwischenspeicher[0], zwischenspeicher2[0]);
-		boolean [] AdderArray= {h,g};
+		Boolean [] AdderArray= {h,g};
 		System.out.println("Das Ergenis lautet:"+" "+AdderArray[0]+" | "+AdderArray[1]);
 		int myInt = (AdderArray[0]) ? 1 : 0;
 		int myInt2 = (AdderArray[1])? 1 :0 ;
 		System.out.println("Ohne Boolean:" +" "+(myInt*2+myInt2));
-		return AdderArray;
+		store.setOutput(AdderArray);
+		return store;
 		}
+	}
 }
