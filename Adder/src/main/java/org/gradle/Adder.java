@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 
-@Component
+//@Component
 public class Adder {
 	//Aufruf mit Methoden
     @Resource
@@ -41,7 +41,7 @@ public class Adder {
 		this.b=b;
 		this.c=c;
 	}
-	Adder (){	
+	public Adder (){	
 	}
 	
     //Methode
