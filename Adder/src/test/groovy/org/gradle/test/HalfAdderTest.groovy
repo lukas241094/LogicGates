@@ -1,7 +1,8 @@
 
 package org.gradle.test
 
-import org.gradle.*
+import org.gradle.
+import org.gradle.Interface.Gate;
 import org.gradle.gates.AndGate
 import org.gradle.gates.*
 import spock.lang.*

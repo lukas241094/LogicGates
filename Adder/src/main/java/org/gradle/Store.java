@@ -1,5 +1,6 @@
 package org.gradle;
 
+import org.gradle.Interface.StoreInterface;
 import org.springframework.stereotype.Component;
 
 @Component

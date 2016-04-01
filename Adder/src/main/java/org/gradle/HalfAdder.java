@@ -1,8 +1,9 @@
 package org.gradle;
 import javax.annotation.Resource;
 
+import org.gradle.Interface.Gate;
+import org.gradle.Interface.HalfAdderInterface;
 import org.gradle.gates.AndGate;
-import org.gradle.gates.Gate;
 import org.gradle.gates.Xor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;

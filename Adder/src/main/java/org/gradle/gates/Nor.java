@@ -1,5 +1,6 @@
 package org.gradle.gates;
 
+import org.gradle.Interface.Gate;
 import org.springframework.stereotype.Component;
 
 

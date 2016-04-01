@@ -1,10 +1,12 @@
 
 package org.gradle.test
 
-import org.gradle.*
-import org.gradle.gates.Gate
-import spock.lang.*
-import org.gradle.HalfAdderInterface
+import org.gradle.
+import org.gradle.Interface.Gate;
+import org.gradle.Interface.HalfAdderInterface
+import org.gradle.Interface.StoreInterface
+
+import spock.lang.
 
 
 class AdderTest extends Specification{

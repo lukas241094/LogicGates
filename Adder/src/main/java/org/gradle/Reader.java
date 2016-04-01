@@ -1,20 +1,28 @@
 package org.gradle;
 
 import java.io.BufferedReader;
+
 import java.io.FileReader;
 import java.io.IOException;
 
 import javax.annotation.Resource;
 
+import org.gradle.Interface.StoreInterface;
+import org.springframework.batch.item.ItemReader;
+import org.springframework.batch.item.NonTransientResourceException;
+import org.springframework.batch.item.ParseException;
+import org.springframework.batch.item.UnexpectedInputException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 @Component
-public class Reader {
+public class Reader implements ItemReader<StoreInterface>{
 	@Resource
 	StoreInterface store; 
-	@Autowired
-	public StoreInterface OpenFile() throws IOException{
-		FileReader fr = new FileReader ("/home/j_toel01/git/Adder2/LogicGates/Adder/src/main/java/org/gradle/Input");
+	
+	//@Autowired
+	public StoreInterface read()
+			throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
+		FileReader fr = new FileReader ("/home/l_hart08/Downloads/test/LogicGates/Adder/src/main/java/org/gradle/Input");
 		BufferedReader textReader = new BufferedReader (fr);
 		
 		int numberOfLines = 3;

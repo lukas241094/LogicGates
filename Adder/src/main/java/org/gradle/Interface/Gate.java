@@ -1,4 +1,4 @@
-package org.gradle.gates;
+package org.gradle.Interface;
 
 import org.springframework.stereotype.Component;
 

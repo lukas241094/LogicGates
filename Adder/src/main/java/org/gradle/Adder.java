@@ -3,10 +3,12 @@ import java.io.IOException;
 
 import javax.annotation.Resource;
 
+import org.gradle.Interface.Gate;
+import org.gradle.Interface.StoreInterface;
 import org.gradle.gates.AndGate;
-import org.gradle.gates.Gate;
 import org.gradle.gates.OrGate;
 import org.gradle.gates.Xor;
+import org.springframework.batch.item.ItemProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,7 +16,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class Adder {
+public class Adder implements ItemProcessor<StoreInterface,StoreInterface>{
 	//Aufruf mit Methoden
     @Resource
     //@Qualifier ("HalfAdder")
@@ -79,5 +81,10 @@ public class Adder {
 		store.setOutput(AdderArray);
 		return store;
 		}
+	}
+	//@Autowired
+	public StoreInterface process(StoreInterface item) throws Exception {
+		System.out.println("Hello");
+		return evaluateadder(item);
 	}
 }
