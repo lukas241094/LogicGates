@@ -15,7 +15,7 @@ public class Writer {
 
 	
 	//@Autowired
-	public void writeFile(Store store) throws IOException{
+	public void writeFile(StoreInterface store) throws IOException{
 		BufferedWriter writer = null;
 		Boolean [] adderArray= store.getOutput();
 

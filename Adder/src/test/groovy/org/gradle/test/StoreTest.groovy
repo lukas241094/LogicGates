@@ -15,8 +15,7 @@ class StoreTest extends Specification{
 		
 		then:	
 		
-			store.getInput()[0]==true;
-			store.getInput()[1]==true;
+			store.getInput()==test
 		
 		
 	}
@@ -31,8 +30,7 @@ class StoreTest extends Specification{
 		
 		then:
 		
-			store.getOutput()[0]==true;
-			store.getOutput()[1]==true;
+			store.getOutput()==test;
 	}
 
 }

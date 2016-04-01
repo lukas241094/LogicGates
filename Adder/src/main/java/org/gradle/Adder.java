@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 public class Adder {
 	//Aufruf mit Methoden
     @Resource
+    //@Qualifier ("HalfAdder")
 	HalfAdder h1;
     @Resource
     HalfAdder h2;
@@ -29,9 +30,10 @@ public class Adder {
     @Resource 
     @Qualifier ("Xor")
     Gate xor;
-    @Resource
-    Reader reader;
-    
+
+   // @Resource
+   // Reader reader;
+   
     
 	//Definitionen
     //@Value("${org.gradle.a}")
@@ -49,20 +51,18 @@ public class Adder {
 	Adder (){	
 	}
 	
-	public Store variablesSetter(Store store) throws IOException{
+	public void variablesSetter(StoreInterface store) throws IOException{
 		
 		Boolean[] array = store.getInput();
 		this.a = array[0];
 		this.b = array[1];
 		this.c = array[2];
-		return store;
-		}
+				}
     //Methode
 
-	public Store evaluateadder(Store store) throws IOException{
+	public StoreInterface evaluateadder(StoreInterface store) throws IOException{
 		while(true){
-		store = variablesSetter(store);
-		
+		variablesSetter(store);
 		h1.a=this.a;
 		h1.b=this.b;
 		boolean [] zwischenspeicher = h1.evaluateHalfAdder();//d,e

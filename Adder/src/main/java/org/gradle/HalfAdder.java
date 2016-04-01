@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class HalfAdder{
+public class HalfAdder implements HalfAdderInterface{
 //Aufruf mit Methoden
    @Resource
    @Qualifier("AndGate")

@@ -3,7 +3,7 @@ package org.gradle;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Store {
+public class Store implements StoreInterface {
 	
 	Boolean[] input;
 	Boolean[] output;

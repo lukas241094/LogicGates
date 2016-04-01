@@ -11,10 +11,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class Reader {
 	@Resource
-	Store store; 
+	StoreInterface store; 
 	@Autowired
-	public Store OpenFile() throws IOException{
-		FileReader fr = new FileReader ("/home/j_toel01/git/LogicGates/Adder/src/main/java/org/gradle/Input");
+	public StoreInterface OpenFile() throws IOException{
+		FileReader fr = new FileReader ("/home/j_toel01/git/Adder2/LogicGates/Adder/src/main/java/org/gradle/Input");
 		BufferedReader textReader = new BufferedReader (fr);
 		
 		int numberOfLines = 3;
@@ -25,14 +25,17 @@ public class Reader {
 		
 		for (i=0;i<numberOfLines;++i){
 			String line =  textReader.readLine();
-			System.out.println(line.split(" "));
+			//System.out.println(line);
+			//System.out.println(line.split(" "));
 			textData[i]= Boolean.parseBoolean(line.split(" ")[2]);
-			System.out.println(textData[i].getClass().getName());
+			//System.out.println(textData[i].getClass().);
 			//boolean boolean2 = Boolean.parseBoolean("true");
 		}
 		textReader.close();
 		store.setInput(textData);
-//		System.out.println(textData[0]);
+		//System.out.println(textData[0]);
+		//System.out.println(textData[1]);
+		//System.out.println(textData[2]);
 		return store;
 	}
 

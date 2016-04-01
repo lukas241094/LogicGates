@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
+import org.gradle.StoreInterface;
 @Component
 public class FakeConfigClass {
 	@Resource
@@ -18,7 +18,7 @@ public class FakeConfigClass {
 	
 	@Autowired
 	public void magic() throws IOException{
-		Store store = reader.OpenFile();
+		StoreInterface store = reader.OpenFile();
 		store = adder.evaluateadder(store);
 		writer.writeFile(store);
 		
