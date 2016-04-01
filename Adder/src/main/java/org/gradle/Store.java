@@ -7,6 +7,7 @@ public class Store {
 	
 	Boolean[] input;
 	Boolean[] output;
+	
 	public Boolean[] getInput() {
 		return input;
 	}
